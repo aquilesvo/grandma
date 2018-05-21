@@ -1,7 +1,7 @@
 <h1>Grandmoms#update</h1>
 <p>Edit a existing Grandmom</p>
 
-<%= simple_form_for @grandmom do |g| %>
+<%= simple_form_for @grandmom, method:'patch' do |f| %>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
   <%= f.input :address %>

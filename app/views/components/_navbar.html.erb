@@ -10,15 +10,16 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Sign Up</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Add Grandma</a>
+
+   <%= link_to 'Log Out', destroy_user_session_path, method:'delete', class: 'navbar-wagon-item navbar-wagon-link' %>
+   <%= link_to 'Add Grandma', new_grandmom_path, class: 'navbar-wagon-item navbar-wagon-link' %>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <i class="far fa-user-circle avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
         <!-- # uncomment when logged in -->
-        <!-- <img src="" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> -->
+       <!--  <img src="" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> -->
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Sign Up</a></li>
           <li><a href="#">Add Grandma</a></li>
