@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_144219) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
     t.datetime "start_time"
@@ -25,6 +26,21 @@ ActiveRecord::Schema.define(version: 2018_05_21_144219) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+  
+  create_table "grandmoms", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "photo"
+    t.string "description"
+    t.integer "price"
+    t.boolean "cooking"
+    t.boolean "childcare"
+    t.boolean "storytelling"
+    t.boolean "goforawalk"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "address"
   end
 
   create_table "users", force: :cascade do |t|

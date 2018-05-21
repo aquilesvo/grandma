@@ -1,0 +1,15 @@
+<h1>Grandmoms#new</h1>
+<p>Create a new Grandmom</p>
+
+<%= simple_form_for @grandmom, method:'post' do |g| %>
+  <%= g.input :first_name %>
+  <%= g.input :last_name %>
+  <%= g.input :address %>
+  <%= g.input :description, as: :text %>
+  <%= g.input :price %>
+  <%= g.input :cooking, as: :radio_buttons %>
+  <%= g.input :childcare, as: :radio_buttons %>
+  <%= g.input :storytelling, as: :radio_buttons %>
+  <%= g.input :goforawalk, as: :radio_buttons %>
+  <%= g.button :submit %>
+<% end %>

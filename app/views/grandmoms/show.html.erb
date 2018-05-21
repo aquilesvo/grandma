@@ -1,0 +1,11 @@
+<h1> <%= @grandmom.last_name %></h1>
+<p>Here you can see one specific Grandmom (ID)</p>
+
+<ul>
+  <li><%= @grandmom.first_name %> <%= @grandmom.last_name %></li>
+  <li><%= @grandmom.address %></li>
+  <li><%= @grandmom.description %></li>
+  <li><%= @grandmom.price %></li>
+</ul>
+
+<%= link_to "back", grandmoms_path, class: "btn btn-primary" %>
