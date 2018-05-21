@@ -1,0 +1,6 @@
+<h1> Your Booking Number #<%=  @booking.id %> </h1>
+
+<p> From <%= @booking.start_time %></p>
+<p> Until <%= @booking.end_time %></p>
+
+<%= link_to 'Delete', booking_path(@booking), method: 'delete' %>
