@@ -1,5 +1,5 @@
 class GrandmomsController < ApplicationController
-  before_action :set_grandmom, only: [:show, :edit, :delete]
+  before_action :set_grandmom, only: [:show, :edit, :update, :destroy]
 
   def index
     @grandmoms = Grandmom.all
@@ -22,12 +22,16 @@ class GrandmomsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    @grandmom.update(grandmom_params)
     redirect_to grandmom_path(@grandmom)
   end
 
-  def delete
-    @grandmom.destroy
-    redirect_to user_path(@grandmom.user)
+  def destroy
+    @grandmom.delete
+    redirect_to grandmoms_path
   end
 
   private
