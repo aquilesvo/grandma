@@ -4,6 +4,8 @@
 <%= simple_form_for @grandmom, method:'post' do |g| %>
   <%= g.input :first_name %>
   <%= g.input :last_name %>
+  <%= g.input :photo %>
+  <%= g.input :photo_cache, as: :hidden %>
   <%= g.input :address %>
   <%= g.input :description, as: :text %>
   <%= g.input :price %>

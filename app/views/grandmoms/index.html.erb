@@ -5,6 +5,7 @@
   <% @grandmoms.each do |grandmom| %>
     <li>
       <%= link_to grandmom.last_name, grandmom_path(grandmom.id) %>
+      <%= image_tag grandmom.photo.url(:thumbnail) %>
     </li>
   <% end %>
 </ul>
