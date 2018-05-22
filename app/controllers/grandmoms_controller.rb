@@ -13,9 +13,10 @@ class GrandmomsController < ApplicationController
   end
 
   def create
-    @grandmom = Grandmom.create(grandmom_params)
+    @grandmom = Grandmom.new(grandmom_params)
+    @grandmom.owner = current_user
     if @grandmom.save
-      redirect_to grandmom_path(@grandmom.id)
+      redirect_to grandmom_path(@grandmom)
     else
       render :new
     end
