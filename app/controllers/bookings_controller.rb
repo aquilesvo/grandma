@@ -8,14 +8,16 @@ class BookingsController < ApplicationController
   end
 
   def new
+    @grandmom = Grandmom.find(params[:grandmom_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.create(booking_params)
     @booking.user_id = current_user.id
+    @booking.grandmom_id = params[:grandmom_id]
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to grandmom_booking_path(id: @booking.id)
     else
       render :new
     end
@@ -40,6 +42,6 @@ class BookingsController < ApplicationController
 private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time)
+    params.require(:booking).permit(:start_time, :end_time, :grandmom_id, :user_id)
   end
 end

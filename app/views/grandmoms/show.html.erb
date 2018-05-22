@@ -3,6 +3,7 @@
 
 <ul>
   <li><%= @grandmom.first_name %> <%= @grandmom.last_name %></li>
+  <li><%= image_tag @grandmom.photo.url(:bright_face) %></li>
   <li><%= @grandmom.address %></li>
   <li><%= @grandmom.description %></li>
   <li><%= @grandmom.price %></li>
@@ -11,3 +12,4 @@
 <%= link_to "back", grandmoms_path, class: "btn btn-primary" %>
 <%= link_to "Edit", edit_grandmom_path(@grandmom), class: "btn btn-primary" %>
 <%= link_to "Delete", grandmom_path, method:'delete', class: "btn btn-primary" %>
+<%= link_to "Book", new_grandmom_booking_path(@grandmom), class: "btn btn-primary" %>
