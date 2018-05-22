@@ -3,6 +3,7 @@ ruby '2.4.4'
 
 gem 'bootsnap', require: false
 gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
