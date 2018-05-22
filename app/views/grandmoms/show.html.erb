@@ -3,6 +3,7 @@
 
 <ul>
   <li><%= @grandmom.first_name %> <%= @grandmom.last_name %></li>
+  <li><%= image_tag @grandmom.photo.url(:bright_face) %></li>
   <li><%= @grandmom.address %></li>
   <li><%= @grandmom.description %></li>
   <li><%= @grandmom.price %></li>
