@@ -3,6 +3,13 @@ class GrandmomsController < ApplicationController
 
   def index
     @grandmoms = Grandmom.all
+    @grandmoms = @grandmoms.where(childcare: params[:childcare]) if params[:childcare].present?
+    @grandmoms = @grandmoms.where(cooking: params[:cooking]) if params[:cooking].present?
+    @grandmoms = @grandmoms.where(goforawalk: params[:goforawalk]) if params[:goforawalk].present?
+    @grandmoms = @grandmoms.where(storytelling: params[:storytelling]) if params[:storytelling].present?
+    # filtering_params(params).each do |key, value|
+    # @grandmoms = @grandmoms.where(params == true)
+
   end
 
   def show

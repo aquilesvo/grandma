@@ -1,11 +1,59 @@
 <h1>Grandmoms#index</h1>
 <p>Here you can see all the Grandmoms existing on planet earth</p>
 
-<ul>
-  <% @grandmoms.each do |grandmom| %>
-    <li>
-      <%= link_to grandmom.last_name, grandmom_path(grandmom.id) %>
-      <%= image_tag grandmom.photo.url(:thumbnail) %>
-    </li>
+<p>Filter for the grandmom you are looking for!</p>
+<div class="icons">
+  <%= link_to grandmoms_path({childcare: true}) do %>
+    <button class="btn"><i class="fas fa-child fa-3x"></i></button>
   <% end %>
-</ul>
+  <%= link_to grandmoms_path({storytelling: true}) do %>
+    <button class="btn"><i class="fas fa-book-open fa-3x"></i></button>
+  <% end %>
+  <%= link_to grandmoms_path({goforawalk: true}) do %>
+    <button class="btn"><i class="fas fa-walking fa-3x"></i></button>
+  <% end %>
+  <%= link_to grandmoms_path({cooking: true}) do %>
+    <button class="btn"><i class="fas fa-utensils fa-3x"></i></button>
+  <% end %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Photo</th>
+      <th scope="col">Name</th>
+      <th scope="col">Childcare</th>
+      <th scope="col">Storytelling</th>
+      <th scope="col">Go for a walk</th>
+      <th scope="col">Cooking</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @grandmoms.each do |grandmom| %>
+      <tr>
+        <th scope="row"><%= image_tag grandmom.photo.url(:thumbnail) %></th>
+        <td><%= link_to grandmom.last_name, grandmom_path(grandmom.id) %></td>
+          <% if grandmom.childcare %>
+        <td><i class="far fa-check-circle"></i></td>
+          <% else %>
+        <td><i class="fas fa-times"></i></td>
+          <% end %>
+          <% if grandmom.storytelling %>
+        <td><i class="far fa-check-circle"></i></td>
+          <% else %>
+        <td><i class="fas fa-times"></i></td>
+          <% end %>
+          <% if grandmom.goforawalk %>
+        <td><i class="far fa-check-circle"></i></td>
+          <% else %>
+        <td><i class="fas fa-times"></i></td>
+          <% end %>
+          <% if grandmom.cooking %>
+        <td><i class="far fa-check-circle"></i></td>
+          <% else %>
+        <td><i class="fas fa-times"></i></td>
+          <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

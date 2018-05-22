@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: fe586fb29f2beae09e8c82a97c9d5a34bf02932f
+  branch: master
+  specs:
+    faker (1.8.7)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -230,6 +238,7 @@ DEPENDENCIES
   carrierwave (~> 1.2)
   cloudinary
   devise
+  faker!
   figaro
   font-awesome-sass (~> 5.0.9)
   jbuilder (~> 2.0)
