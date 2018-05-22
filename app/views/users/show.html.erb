@@ -1,0 +1,17 @@
+<div>
+  <h1>User Dashboard</h1>
+  <div>
+    <h3>Your owned Grandmoms</h3>
+    <% @grandmoms_owned.each do |grandma|%>
+    <%= link_to grandma.first_name, grandmom_path(grandma) %>
+    <% end %>
+  </div>
+  <div>
+    <h3>Your Bookings</h3>
+    <% @bookings.each do |booking|%>
+    <%= link_to booking.grandmom.last_name, grandmom_booking_path(booking) %> <br>
+    <% end %>
+  </div>
+
+</div>
+
