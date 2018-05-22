@@ -9,12 +9,27 @@
         <!-- insert <div class="card"> -->
           <div class="card">
             <div class="card-category">
-              <%= booking.start_time %> <br>
-              <%= booking.end_time %> <br>
-              <%= booking.price %> <br>
+              <ul>
+                <% grammy = Grandmom.find(booking.grandmom_id) %>
+                <li>
+                  <%= grammy.first_name %> <%= grammy.last_name %>
+                </li>
+                <li>
+                  Booker: <%= User.find(booking.user_id).email %>
+                </li>
+                <li>
+                  Start: <%= booking.start_time %> <br>
+                </li>
+                <li>
+                  End: <%= booking.end_time %> <br>
+                </li>
+                <li>
+                  <%= link_to 'Details', grandmom_booking_path(grammy, booking) %>
+                </li>
+              </ul>
             </div>
             <div class="card-description">
-              <%= link_to 'Details', booking_path(booking) %>
+
             </div>
           </div>
       </div>
