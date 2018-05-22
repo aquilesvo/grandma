@@ -1,5 +1,5 @@
 class Grandmom < ApplicationRecord
-  has_many :users, dependent: :destroy
+  # has_many :users, through: :bookings, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
