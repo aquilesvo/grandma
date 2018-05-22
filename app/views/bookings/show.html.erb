@@ -1,6 +1,10 @@
-<h1> Your Booking Number #<%=  @booking.id %> </h1>
+<h1> Booking Number #<%=  @booking.id %> </h1>
 
+<% grammy = Grandmom.find(@booking.grandmom_id) %>
+<p> Grandma <%= grammy.first_name %> <%= grammy.last_name %></p>
+<p> User <%= User.find(@booking.user_id).email %></p>
 <p> From <%= @booking.start_time %></p>
 <p> Until <%= @booking.end_time %></p>
 
-<%= link_to 'Delete', booking_path(@booking), method: 'delete' %>
+<%= link_to 'Delete', grandmom_booking_path(@booking), method: 'delete' %>
+<%= link_to 'Back', root_path %>
