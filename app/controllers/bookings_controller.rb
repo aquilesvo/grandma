@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
+  before_action :set_grandmom, only: [:show, :destroy, :new, :create]
+  before_action :authorize_grandmom, only: [:create, :show, :destroy, :new]
+
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(set_grandmom)
+    # @bookings = Booking.all
   end
 
   def show
@@ -8,7 +12,6 @@ class BookingsController < ApplicationController
   end
 
   def new
-    @grandmom = Grandmom.find(params[:grandmom_id])
     @booking = Booking.new
   end
 
@@ -43,5 +46,13 @@ private
 
   def booking_params
     params.require(:booking).permit(:start_time, :end_time, :grandmom_id, :user_id)
+  end
+
+  def set_grandmom
+    @grandmom = Grandmom.find(params[:grandmom_id])
+  end
+
+  def authorize_grandmom
+    authorize @grandmom
   end
 end
