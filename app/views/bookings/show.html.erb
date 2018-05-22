@@ -3,4 +3,5 @@
 <p> From <%= @booking.start_time %></p>
 <p> Until <%= @booking.end_time %></p>
 
-<%= link_to 'Delete', booking_path(@booking), method: 'delete' %>
+<%= link_to 'Delete', grandmom_booking_path(@booking), method: 'delete' %>
+<%= link_to 'Back', root_path %>

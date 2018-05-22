@@ -1,8 +1,9 @@
-<h1>Create a new booking!</h1>
+<h1>Create a new booking for <%= @grandmom.first_name %> <%= @grandmom.last_name %>!</h1>
 
-<%= simple_form_for @booking do |f| %>
+<%= simple_form_for [@grandmom, @booking] do |f| %>
   <%= f.input :start_time %>
   <%= f.input :end_time %>
   <%= f.button :submit %>
 <% end %>
-<%= link_to 'Back', bookings_path %> <br>
+
+<%= link_to 'Back', grandmoms_path %> <br>

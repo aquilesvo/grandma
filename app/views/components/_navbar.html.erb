@@ -37,9 +37,17 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">My Bookings</a></li>
-        <li><a href="#">My Services</a></li>
-        <li><a href="#">My Grandma's</a></li>
+        <li>
+          <%= link_to 'Add Grandma', new_grandmom_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+        </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to 'Log Out', destroy_user_session_path, method:'delete', class: 'navbar-wagon-item navbar-wagon-link' %>
+          <% else %>
+            <%= link_to 'Sign In', new_user_session_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+            <%= link_to 'Register', new_user_registration_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
