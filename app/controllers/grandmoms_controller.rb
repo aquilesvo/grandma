@@ -3,6 +3,14 @@ class GrandmomsController < ApplicationController
   before_action :authorize_grandmom, only: [:show, :edit, :update, :destroy]
 
   def index
+    @grandmoms = Grandmom.where.not(latitude: nil, longitude: nil)
+    @markers = @grandmoms.map do |g|
+      {
+        lat: g.latitude,
+        lng: g.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
     @grandmoms = policy_scope(Grandmom)
     @grandmoms = @grandmoms.where(childcare: params[:childcare]) if params[:childcare].present?
     @grandmoms = @grandmoms.where(cooking: params[:cooking]) if params[:cooking].present?

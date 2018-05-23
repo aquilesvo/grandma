@@ -6,7 +6,7 @@
   <%= g.input :last_name %>
   <%= g.input :photo %>
   <%= g.input :photo_cache, as: :hidden %>
-  <%= g.input :address %>
+  <%= g.input :address, input_html: {id: 'grandmom_address' } %>
   <%= g.input :description, as: :text %>
   <%= g.input :price %>
   <%= g.input :cooking, as: :radio_buttons %>
