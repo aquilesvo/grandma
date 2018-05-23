@@ -1,7 +1,7 @@
-<h1>Grandmoms#index</h1>
 <p>Here you can see all the Grandmoms existing on planet earth</p>
 
 <p>Filter for the grandmom you are looking for!</p>
+<br>
 <div class="icons">
   <%= link_to grandmoms_path({childcare: true}) do %>
     <button class="btn"><i class="fas fa-child fa-3x"></i></button>
@@ -31,7 +31,7 @@
   <tbody>
     <% @grandmoms.each do |grandmom| %>
       <tr>
-        <th scope="row"><%= image_tag grandmom.photo.url(:thumbnail) %></th>
+        <th scope="row"> <%= image_tag grandmom.photo.url(:thumbnail) %> </th>
         <td><%= link_to grandmom.last_name, grandmom_path(grandmom.id) %></td>
           <% if grandmom.childcare %>
         <td><i class="far fa-check-circle"></i></td>

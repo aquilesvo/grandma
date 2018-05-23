@@ -20,6 +20,7 @@ Grandmom.destroy_all
     storytelling: [true, false].sample,
     goforawalk: [true, false].sample,
     address: Faker::Address.street_name,
+    photo: 'https://favim.com/orig/201107/08/glasses-grandmom-radical-retro-rock-roll-Favim.com-98806.jpg'
   })
 end
 
