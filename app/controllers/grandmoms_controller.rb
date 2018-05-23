@@ -1,8 +1,9 @@
 class GrandmomsController < ApplicationController
   before_action :set_grandmom, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_grandmom, only: [:show, :edit, :update, :destroy]
 
   def index
-    @grandmoms = Grandmom.all
+    @grandmoms = policy_scope(Grandmom)
     @grandmoms = @grandmoms.where(childcare: params[:childcare]) if params[:childcare].present?
     @grandmoms = @grandmoms.where(cooking: params[:cooking]) if params[:cooking].present?
     @grandmoms = @grandmoms.where(goforawalk: params[:goforawalk]) if params[:goforawalk].present?
@@ -13,14 +14,17 @@ class GrandmomsController < ApplicationController
   end
 
   def show
+    authorize @grandmom
   end
 
   def new
     @grandmom = Grandmom.new
+    authorize @grandmom
   end
 
   def create
     @grandmom = Grandmom.new(grandmom_params)
+    authorize @grandmom
     @grandmom.owner = current_user
     if @grandmom.save
       redirect_to grandmom_path(@grandmom)
@@ -30,15 +34,18 @@ class GrandmomsController < ApplicationController
   end
 
   def edit
+    authorize @grandmom
   end
 
   def update
+    authorize @grandmom
     @grandmom.update(grandmom_params)
     redirect_to grandmom_path(@grandmom)
   end
 
   def destroy
-    @grandmom.delete
+    authorize @grandmom
+    @grandmom.destroy
     redirect_to grandmoms_path
   end
 
@@ -51,5 +58,9 @@ class GrandmomsController < ApplicationController
 
   def set_grandmom
     @grandmom = Grandmom.find(params[:id])
+  end
+
+  def authorize_grandmom
+    authorize @grandmom
   end
 end
