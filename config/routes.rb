@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:index]
 
-  resources :users, only: [:show]
+  resources :users, only: [:show, :edit, :update, :destroy]
+  patch '/userphoto/:id', to: 'users#remove_photo', as: 'user_photo'
 end
