@@ -1,0 +1,40 @@
+<div>
+  <h1>User Profile</h1>
+  <div>
+    <h3> Your personal data:</h3>
+  </div>
+    <% if @current_user.photo.present? %>
+      <%= cl_image_tag @current_user.photo, height: 300, width: 400, crop: :fill %>
+      <%= link_to 'Delete', user_photo_path(current_user), method: :patch%>
+    <% else %>
+      <%= simple_form_for(@current_user) do |f| %>
+        <!-- [...] -->
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.button :submit %>
+      <% end %>
+    <% end %>
+    <h4>Email:</h4>
+    <p><%= current_user.email %></p>
+  <div>
+    <h3>Your owned Grandmoms</h3>
+    <div class="container">
+      <div class="row">
+        <% @grandmoms_owned.each do |grandma| %>
+          <div class="col-xs-12 col-sm-4" style="background-image: url(https://favim.com/orig/201107/08/glasses-grandmom-radical-retro-rock-roll-Favim.com-98806.jpg);">
+            <!-- insert <div class="card"> -->
+              <div class="card">
+                <div class="card-category">
+                  <%= grandma.first_name %> <br>
+                </div>
+                <div class="card-description">
+                  <%= link_to grandma.first_name, grandmom_path(grandma) %>
+                </div>
+              </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
