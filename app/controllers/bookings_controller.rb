@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
   before_action :authorize_booking, only: [:show]
 
   def index
-
+    @user = current_user
     @bookings = policy_scope(Booking)
     # @bookings = Booking.all
   end
@@ -44,6 +44,21 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
+    redirect_to bookings_path
+  end
+
+# not CRUD methods
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = 'Accepted'
+    @booking.save
+    redirect_to bookings_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = 'Declined'
+    @booking.save
     redirect_to bookings_path
   end
 
