@@ -45,7 +45,7 @@ class GrandmomsController < ApplicationController
 
   def destroy
     authorize @grandmom
-    @grandmom.delete
+    @grandmom.destroy
     redirect_to grandmoms_path
   end
 
