@@ -1,23 +1,30 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show]
+  before_action :set_grandmom, only: [:show, :destroy, :new, :create]
+  before_action :authorize_booking, only: [:show]
+
   def index
-    @bookings = Booking.all
+
+    @bookings = policy_scope(Booking)
+    # @bookings = Booking.all
   end
 
   def show
-    @booking = Booking.find(params[:id])
+
   end
 
   def new
-    @grandmom = Grandmom.find(params[:grandmom_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
-    @booking = Booking.create(booking_params)
+    @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.user_id = current_user.id
     @booking.grandmom_id = params[:grandmom_id]
     if @booking.save
-      redirect_to grandmom_booking_path(id: @booking.id)
+      redirect_to grandmom_booking_path(@grandmom, @booking)
     else
       render :new
     end
@@ -35,6 +42,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
     redirect_to bookings_path
   end
@@ -43,5 +51,19 @@ private
 
   def booking_params
     params.require(:booking).permit(:start_time, :end_time, :grandmom_id, :user_id)
+  end
+
+  def set_grandmom
+    # raise
+    @grandmom = Grandmom.find(params[:grandmom_id])
+    # raise
+  end
+
+  def authorize_booking
+    authorize @booking
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end
