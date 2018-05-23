@@ -1,15 +1,31 @@
-<h1> <%= @grandmom.last_name %></h1>
-<p>Here you can see one specific Grandmom (ID)</p>
+<div class="complete-page">
 
-<ul>
-  <li><%= @grandmom.first_name %> <%= @grandmom.last_name %></li>
-  <li><%= image_tag @grandmom.photo.url(:bright_face) %></li>
-  <li><%= @grandmom.address %></li>
-  <li><%= @grandmom.description %></li>
-  <li><%= @grandmom.price %></li>
-</ul>
+  <div class="main-container">
+    <div class="headline">
+      <h2> <%= @grandmom.last_name %></h2>
+      <h4>
+        Name: <%= @grandmom.first_name %> <%= @grandmom.last_name %>
+      </h4>
+    </div>
 
-<%= link_to "back", grandmoms_path, class: "btn btn-primary" %>
-<% if policy(@grandmom).update? %> <%= link_to "Edit", edit_grandmom_path(@grandmom), class: "btn btn-primary" %> <% end %>
-<% if policy(@grandmom).destroy? %> <%= link_to "Delete", grandmom_path, method:'delete', class: "btn btn-primary" %> <% end %>
-<%= link_to "Book", new_grandmom_booking_path(@grandmom), class: "btn btn-primary" %>
+    <div class="sub-container">
+      <div>
+        <%= image_tag @grandmom.photo.url(:bright_face) %> <br>
+      </div>
+      <div>
+        <%= @grandmom.address %> <br>
+        <%= @grandmom.description %> <br>
+        <%= @grandmom.price %> <br>
+      </div>
+    </div>
+    <br>
+    <div class="ctas">
+      <%= link_to "Book", new_grandmom_booking_path(@grandmom), class: "btn btn-primary" %>
+      <%= link_to "Home", grandmoms_path, class: "btn btn-primary" %>
+      <% if policy(@grandmom).update? %> <%= link_to "Edit", edit_grandmom_path(@grandmom), class: "btn btn-primary" %> <% end %>
+      <% if policy(@grandmom).destroy? %> <%= link_to "Delete", grandmom_path, method:'delete', class: "btn btn-primary" %> <% end %>
+    </div>
+
+  </div>
+
+</div>
