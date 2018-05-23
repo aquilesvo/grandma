@@ -5,7 +5,7 @@ class Grandmom < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :address, presence: true
+  # validates :address, presence: true
   validates :description, presence: true
   validates :price, presence: true
   validates :user_id, presence: true
