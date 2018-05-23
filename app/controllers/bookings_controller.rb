@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @bookings = Booking.all
+    @user = current_user
   end
 
   def show
@@ -36,6 +37,21 @@ class BookingsController < ApplicationController
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
+    redirect_to bookings_path
+  end
+
+# not CRUD methods
+  def accept
+    @booking = Booking.find(params[:id])
+    @booking.status = 'Accepted'
+    @booking.save
+    redirect_to bookings_path
+  end
+
+  def decline
+    @booking = Booking.find(params[:id])
+    @booking.status = 'Declined'
+    @booking.save
     redirect_to bookings_path
   end
 
