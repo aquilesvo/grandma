@@ -21,7 +21,9 @@
     <% @grandmoms.each do |grandmom| %>
       <div class="col-xs-12 col-sm-3">
         <div class="gcard">
-          <%= image_tag grandmom.photo.url(:thumbnail), class: 'grandma-image' %>
+          <% if grandmom.photo.present? %>
+            <%= image_tag grandmom.photo.url(:thumbnail), class: 'grandma-image'  %>
+          <% end %>
           <div class="gcontainer">
             <%= link_to grandmom.first_name, grandmom_path(grandmom.id) %>
             <br>
