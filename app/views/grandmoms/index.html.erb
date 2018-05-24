@@ -22,7 +22,7 @@
       <div class="col-xs-12 col-sm-3">
         <div class="gcard">
           <% if grandmom.photo.present? %>
-            <%= image_tag grandmom.photo.url(:thumbnail) %>
+            <%= image_tag grandmom.photo.url(:thumbnail), class: 'grandma-image'  %>
           <% end %>
           <div class="gcontainer">
             <%= link_to grandmom.first_name, grandmom_path(grandmom.id) %>
