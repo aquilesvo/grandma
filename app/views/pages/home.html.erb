@@ -1,3 +1,27 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
+<div class="main-page">
+ <div class="body">
+  <div class="headline">
+    <h1> Book a Grandmom </h1>
+  </div>
+  <div class="subtitle">
+    <h3> Find a Grandmom in your region <br> and have an awesome time! </h3>
+  </div>
+  <div>
+    <div class="search">
+      <div class="searchbox">
+        <%= form_tag grandmoms_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            id: 'grandmom_address',
+            placeholder: "Type in your address"
+          %>
+        <% end %>
+      </div>
+      <div>
+        <%= submit_tag 'Search', :class => 'searchbutton' %>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
