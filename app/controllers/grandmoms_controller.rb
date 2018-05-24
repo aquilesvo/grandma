@@ -3,6 +3,7 @@ class GrandmomsController < ApplicationController
   before_action :authorize_grandmom, only: [:show, :edit, :update, :destroy]
 
   def index
+    raise
     @grandmoms = Grandmom.where.not(latitude: nil, longitude: nil)
     @markers = @grandmoms.map do |g|
       {
