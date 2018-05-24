@@ -1,31 +1,89 @@
 <div class="complete-page">
 
   <div class="main-container">
-    <div class="headline">
-      <h2> <%= @grandmom.last_name %></h2>
-      <h4>
-        Name: <%= @grandmom.first_name %> <%= @grandmom.last_name %>
-      </h4>
+
+    <div class="container-left">
+      <div >
+        <%= image_tag @grandmom.photo.url(:bright_face), class:'profile-image-big-square' %>
+      </div>
+
+      <div>
+        <div class="row-container verified-info">
+          <div class="flexbox-row">
+            <h3 class="box-header">Verified info</h3>
+          </div>
+          <div class="flexbox-row">
+            <div><p>Government ID</p></div>
+            <div><i class="far fa-check-circle"></i></div>
+          </div>
+          <div class="flexbox-row">
+            <div><p>Selfie</p></div>
+            <div><i class="far fa-check-circle"></i></div>
+          </div>
+          <div class="flexbox-row">
+            <div><p>Email address</p></div>
+            <div><i class="far fa-check-circle"></i></div>
+          </div>
+          <div class="flexbox-row">
+            <div><p>Phone number</p></div>
+            <div><i class="far fa-check-circle"></i></div>
+          </div>
+          <div class="flexbox-row"><p>Learn more »</p></div>
+        </div>
+      </div>
     </div>
 
-    <div class="sub-container">
-      <div>
-        <%= image_tag @grandmom.photo.url(:bright_face) %> <br>
+    <div class="container-center">
+      <div class="headline">
+        <h2><%= @grandmom.first_name %> <%= @grandmom.last_name %></h2>
+        <h5><%= @grandmom.address %></h5>
+        <br>
+        <p><%= @grandmom.description %></p>
+        <br>
+        <p><i class="fas fa-euro-sign"></i> <%= @grandmom.price %></p>
       </div>
-      <div>
-        <%= @grandmom.address %> <br>
-        <%= @grandmom.description %> <br>
-        <%= @grandmom.price %> <br>
+    <!--   <div class="skills-box grid">
+        <h3 class="box-header">Skills</h3>
+
+        <ul class="box-list">
+          <li class="grid-element e1-from-top"><i class="fas fa-child fa-3x"></i></li>
+          <li class="grid-element e2-from-top"><i class="fas fa-book-open fa-3x"></i></li>
+          <li class="grid-element e3-from-top"><i class="fas fa-walking fa-3x"></i></li>
+          <li class="grid-element e4-from-top"><i class="fas fa-utensils fa-3x"></i></li>
+        </ul>
+      </div> -->
+      <div class="skills-box">
+        <div class="row-container">
+          <div class="flexbox-row">
+            <h3 class="box-header">Skills</h3>
+          </div>
+          <div class="flexbox-row">
+            <div><p>Childcare</p></div>
+            <div><i class="fas fa-child fa-3x"></i></div>
+          </div>
+          <div class="flexbox-row">
+            <div><p>Storytelling</p></div>
+            <div><i class="fas fa-book-open fa-3x"></i></div>
+          </div>
+          <div class="flexbox-row">
+            <div><p>Going for a Walk</p></div>
+            <div><i class="fas fa-walking fa-3x"></i></div>
+          </div>
+          <div class="flexbox-row">
+            <div><p>Cooking</p></div>
+            <div><i class="fas fa-utensils fa-3x"></i></div>
+          </div>
+        </div>
       </div>
-    </div>
-    <br>
-    <div class="ctas">
-      <%= link_to "Book", new_grandmom_booking_path(@grandmom), class: "btn btn-primary" %>
-      <%= link_to "Home", grandmoms_path, class: "btn btn-primary" %>
-      <% if policy(@grandmom).update? %> <%= link_to "Edit", edit_grandmom_path(@grandmom), class: "btn btn-primary" %> <% end %>
-      <% if policy(@grandmom).destroy? %> <%= link_to "Delete", grandmom_path, method:'delete', class: "btn btn-primary" %> <% end %>
     </div>
 
+    <div class="container-right">
+      <div class="button-box">
+        <%= link_to "Book", new_grandmom_booking_path(@grandmom), class: "btn btn-primary flex-element" %>
+        <%= link_to "Home", grandmoms_path, class: "btn btn-primary flex-element" %>
+        <% if policy(@grandmom).update? %> <%= link_to "Edit", edit_grandmom_path(@grandmom), class: "btn btn-primary flex-element" %> <% end %>
+        <% if policy(@grandmom).destroy? %> <%= link_to "Delete", grandmom_path, method:'delete', class: "btn btn-primary flex-element" %> <% end %>
+      </div>
+    </div>
   </div>
-
 </div>
