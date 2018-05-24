@@ -4,4 +4,10 @@
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  width: auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
 }
