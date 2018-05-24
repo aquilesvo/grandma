@@ -1,9 +1,52 @@
-<h2>YOUR UNANSWERED REQUESTS</h2>
+<div class="complete-page">
+  <div class="container">
+    <h2>YOUR UNANSWERED REQUESTS</h2>
+    <div class="row">
+      <% @bookings.each do |booking| %>
+        <% if booking.status == 'pending' %>
+          <div class="col-xs-12 col-sm-4">
+            <!-- insert <div class="card"> -->
+              <div class="card">
+                <div class="card-category">
+                  <ul>
+                    <% grammy = Grandmom.find(booking.grandmom_id) %>
+                    <li>
+                      <%= grammy.first_name %> <%= grammy.last_name %>
+                    </li>
+                    <li>
+                      Booker: <%= User.find(booking.user_id).email %>
+                    </li>
+                    <li>
+                      Start: <%= booking.start_time %> <br>
+                    </li>
+                    <li>
+                      End: <%= booking.end_time %> <br>
+                    </li>
+                    <li>
+                      <%= link_to 'Details', grandmom_booking_path(grammy, booking) %>
+                    </li>
+                    <li>
+                      <%= link_to 'ACCEPT', accept_path(booking), method: :patch %>
+                    </li>
+                    <li>
+                      <%= link_to 'DECLINE', decline_path(booking), method: :patch %>
+                    </li>
+                  </ul>
+                </div>
+                <div class="card-description">
 
-<div class="container">
-  <div class="row">
-    <% @bookings.each do |booking| %>
-      <% if booking.status == 'pending' %>
+                </div>
+              </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>YOUR SENT REQUESTS</h2>
+    <div class="row">
+      <% @bookings.each do |booking| %>
         <div class="col-xs-12 col-sm-4">
           <!-- insert <div class="card"> -->
             <div class="card">
@@ -25,12 +68,6 @@
                   <li>
                     <%= link_to 'Details', grandmom_booking_path(grammy, booking) %>
                   </li>
-                  <li>
-                    <%= link_to 'ACCEPT', accept_path(booking), method: :patch %>
-                  </li>
-                  <li>
-                    <%= link_to 'DECLINE', decline_path(booking), method: :patch %>
-                  </li>
                 </ul>
               </div>
               <div class="card-description">
@@ -39,44 +76,6 @@
             </div>
         </div>
       <% end %>
-    <% end %>
-  </div>
-</div>
-
-
-<h2>YOUR SENT REQUESTS</h2>
-
-<div class="container">
-  <div class="row">
-    <% @bookings.each do |booking| %>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-          <div class="card">
-            <div class="card-category">
-              <ul>
-                <% grammy = Grandmom.find(booking.grandmom_id) %>
-                <li>
-                  <%= grammy.first_name %> <%= grammy.last_name %>
-                </li>
-                <li>
-                  Booker: <%= User.find(booking.user_id).email %>
-                </li>
-                <li>
-                  Start: <%= booking.start_time %> <br>
-                </li>
-                <li>
-                  End: <%= booking.end_time %> <br>
-                </li>
-                <li>
-                  <%= link_to 'Details', grandmom_booking_path(grammy, booking) %>
-                </li>
-              </ul>
-            </div>
-            <div class="card-description">
-
-            </div>
-          </div>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
