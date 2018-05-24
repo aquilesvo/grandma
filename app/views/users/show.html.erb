@@ -3,7 +3,7 @@
   <div class="top">
     <h3> Your personal data:</h3>
     </div>
-      <% if @current_user.photo.present? || @current_user.photo == nil %>
+      <% if @current_user.photo.present? %>
         <%= cl_image_tag @current_user.photo, height: 300, width: 400, crop: :fill %>
         <%= link_to 'Delete', user_photo_path(current_user), method: :patch%>
       <% else %>
