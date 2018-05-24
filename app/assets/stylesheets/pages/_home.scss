@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 .main-page {
-  background-image: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('queen-klein.jpg');
+  background-image: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), asset-url('queen-klein.jpg');
   height: calc(100vh - 70px);
   background-size: cover;
   margin-top: 0px;
@@ -35,7 +35,10 @@
   margin-top: 50px;
 }
 .searchbox {
-  flex: 1 0 auto;
+  display: flex;
+  .form-control {
+    width: 700px;
+  }
 }
 .searchbutton {
   flex: 0 0 auto;

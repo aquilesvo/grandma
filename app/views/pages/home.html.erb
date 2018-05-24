@@ -8,19 +8,15 @@
   </div>
   <div>
     <div class="search">
-      <div class="searchbox">
-        <%= form_tag grandmoms_path, method: :get do %>
+        <%= form_tag grandmoms_path, method: :get, class: 'searchbox' do %>
           <%= text_field_tag :query,
             params[:query],
             class: "form-control",
             id: 'grandmom_address',
             placeholder: "Type in your address"
           %>
-        <% end %>
-      </div>
-      <div>
         <%= submit_tag 'Search', :class => 'searchbutton' %>
-      </div>
+        <% end %>
     </div>
   </div>
  </div>
