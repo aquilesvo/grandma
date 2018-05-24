@@ -105,26 +105,32 @@
             <div class="modal-body">
 
               <div class="container">
-                <div class='col-md-3'>
-                  <div class="form-group">
-                    <div class='input-group date' id='datetimepicker6'>
-                      <input type='text' class="form-control" />
-                      <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                      </span>
+                <%= simple_form_for [@grandmom, @booking] do |f| %>
+                  <div class='col-md-3'>
+                    <div class="form-group">
+                      <div class='input-group date' id='datetimepicker6'>
+                        <input type='text' class="form-control" name="booking[start_time]" />
+                        <%# f.input :start_time, class: 'form-control' %>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class='col-md-3'>
-                  <div class="form-group">
-                    <div class='input-group date' id='datetimepicker7'>
-                      <input type='text' class="form-control" />
-                      <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                      </span>
+
+                  <div class='col-md-3 rightside'>
+                    <div class="form-group">
+                      <div class='input-group date' id='datetimepicker7'>
+                        <input type='text' class="form-control" name="booking[end_time]"/>
+                        <%# f.input :end_time, class: 'form-control' %>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      </div>
                     </div>
+                  <%= f.submit 'Book', :class => 'book_button'  %>
                   </div>
-                </div>
+                <% end %>
               </div>
               <script type="text/javascript">
 
@@ -135,7 +141,7 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
           </div>
         </div>
