@@ -1,81 +1,30 @@
 <div class="complete-page">
-  <div class="container">
-    <h2>YOUR UNANSWERED REQUESTS</h2>
-    <div class="row">
-      <% @bookings.each do |booking| %>
-        <% if booking.status == 'pending' %>
-          <div class="col-xs-12 col-sm-4">
-            <!-- insert <div class="card"> -->
-              <div class="card">
-                <div class="card-category">
-                  <ul>
-                    <% grammy = Grandmom.find(booking.grandmom_id) %>
-                    <li>
-                      <%= grammy.first_name %> <%= grammy.last_name %>
-                    </li>
-                    <li>
-                      Booker: <%= User.find(booking.user_id).email %>
-                    </li>
-                    <li>
-                      Start: <%= booking.start_time %> <br>
-                    </li>
-                    <li>
-                      End: <%= booking.end_time %> <br>
-                    </li>
-                    <li>
-                      <%= link_to 'Details', grandmom_booking_path(grammy, booking) %>
-                    </li>
-                    <li>
-                      <%= link_to 'ACCEPT', accept_path(booking), method: :patch %>
-                    </li>
-                    <li>
-                      <%= link_to 'DECLINE', decline_path(booking), method: :patch %>
-                    </li>
-                  </ul>
-                </div>
-                <div class="card-description">
-
-                </div>
-              </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-
-  <div class="container">
-    <h2>YOUR SENT REQUESTS</h2>
-    <div class="row">
-      <% @bookings.each do |booking| %>
-        <div class="col-xs-12 col-sm-4">
-          <!-- insert <div class="card"> -->
-            <div class="card">
-              <div class="card-category">
-                <ul>
-                  <% grammy = Grandmom.find(booking.grandmom_id) %>
-                  <li>
-                    <%= grammy.first_name %> <%= grammy.last_name %>
-                  </li>
-                  <li>
-                    Booker: <%= User.find(booking.user_id).email %>
-                  </li>
-                  <li>
-                    Start: <%= booking.start_time %> <br>
-                  </li>
-                  <li>
-                    End: <%= booking.end_time %> <br>
-                  </li>
-                  <li>
-                    <%= link_to 'Details', grandmom_booking_path(grammy, booking) %>
-                  </li>
-                </ul>
-              </div>
-              <div class="card-description">
-
-              </div>
+  <div class="status-margin">
+    <% @bookings.each do |booking| %>
+      <% if booking.user == current_user %>
+        <div class="message">
+            <% grammy = Grandmom.find(booking.grandmom_id) %>
+            <div>
+              <%= image_tag grammy.photo.url(:bright_face), class:'profile-image-small-square' %>
+            </div>
+            <div class="message-body">
+              <h3><%= grammy.first_name %></h3>
+              <p>Start: <%= booking.start_time %></p>
+              <p>End: <%= booking.end_time %></p>
+            </div>
+            <div class="message-status">
+              <% if booking.status == 'pending' %>
+                <p class="status pending"><%= booking.status %></p>
+              <% elsif booking.status == 'accepted' %>
+                <p class="status accepted"><%= booking.status %></p>
+              <% elsif booking.status == 'declined' %>
+                <p class="status declined"><%= booking.status %></p>
+              <p class="price"><%= booking.price %></p>
+              <% end %>
             </div>
         </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
+
 </div>

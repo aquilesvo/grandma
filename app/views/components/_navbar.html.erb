@@ -1,7 +1,8 @@
 
 <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
+
+  <a href="grandmoms_path" class="navbar-wagon-brand">
     <%= image_tag 'grandma.png', alt: "logo" %>
   </a>
 
@@ -9,6 +10,7 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to 'Add a Grandma', new_grandmom_path, class: 'navbar-wagon-item navbar-wagon-link' %>
+    <%= link_to 'All Grandmoms', grandmoms_path, class: 'navbar-wagon-item navbar-wagon-link' %>
 
     <% if user_signed_in? %>
       <%= link_to 'My Bookings', bookings_path, class: 'navbar-wagon-item navbar-wagon-link' %>
@@ -20,6 +22,7 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
+
         <% if current_user %>
           <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
             <%= cl_image_tag current_user.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar" %>
