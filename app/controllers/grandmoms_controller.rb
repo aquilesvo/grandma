@@ -67,7 +67,7 @@ class GrandmomsController < ApplicationController
 
   def grandmom_params
     params[:price] = params[:price].to_i
-    params.require(:grandmom).permit(:first_name, :last_name, :description, :address, :price, :cooking, :childcare, :storytelling, :goforawalk, :photo)
+    params.require(:grandmom).permit(:first_name, :last_name, :description, :address, :price, :cooking, :childcare, :storytelling, :goforawalk, :photo, :latitude, :longitude)
   end
 
   def set_grandmom
