@@ -1,22 +1,21 @@
 <div class="flexbox-user">
+
   <div class="main-container-user">
     <h1>User Profile</h1>
-    <div class="top">
-      <h3> Your personal data:</h3>
-      </div>
+    <div class="top-user">
+      <div>
         <% if @current_user.photo.present? %>
-          <%= cl_image_tag @current_user.photo, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag @current_user.photo, height: 150, width: 200, crop: :fill %> <br>
           <%= link_to 'Delete', user_photo_path(current_user), method: :patch%>
         <% else %>
           <%= simple_form_for(@current_user) do |f| %>
             <!-- [...] -->
             <%= f.input :photo %>
             <%= f.input :photo_cache, as: :hidden %>
-            <%= f.button :submit %>
+            <%= f.button :submit, value: 'Upload photo' %>
           <% end %>
         <% end %>
-      <div>
-        <br>
+      </div>
       <div>
         <h4>Email:</h4>
         <p><%= current_user.email %></p>
@@ -25,6 +24,7 @@
   </div>
 
   <div class=container-your-grandmoms>
+    <h1>Your Grandmoms</h1>
     <div class="row">
       <% @grandmoms_owned.each do |grandmom| %>
       <div class="col-md-4">
@@ -58,4 +58,5 @@
       <% end %>
     </div>
   </div>
+
 </div>
