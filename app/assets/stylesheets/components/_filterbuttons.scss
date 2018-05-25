@@ -1,11 +1,12 @@
-.btn-medium {
-  color: #999999;
-  border: 1px solid #999999;
-  padding: 20px 30px;
+.btn-primary {
+  background-color: $green;
+  color: white;
+  border: 1px solid $green;
+  padding: 3px 30px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
-  margin: 10px;
+  margin-right: 16px;
 }
 .btn-medium:hover {
   opacity: 1;

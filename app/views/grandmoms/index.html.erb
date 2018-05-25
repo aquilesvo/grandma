@@ -1,6 +1,7 @@
 <h3>Find the right Grandma' for every purpose</h3>
 
 <div class="icons-container">
+  <%= link_to "All", grandmoms_path, class: "btn btn-primary" %>
   <%= link_to "Childcare", grandmoms_path({childcare: true}), class: "btn btn-primary" %>
   <%= link_to "Storytelling", grandmoms_path({storytelling: true}), class: "btn btn-primary" %>
   <%= link_to "Go for a walk", grandmoms_path({goforawalk: true}), class: "btn btn-primary"  %>
@@ -14,7 +15,7 @@
         <div class="col-md-4">
           <div class="card">
             <% unless grandmom.photo.blank? %>
-              <div class="card-body" style="background-image: url('<%= cl_image_path grandmom.photo, height: 300, width: 400, crop: :fill %>')">
+              <div class="card-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path grandmom.photo, height: 300, width: 400, crop: :fill %>')">
                 <h4 class="card-grandmom-name"><%= link_to grandmom.first_name, grandmom_path(grandmom)%></h4>
               </div>
               <% else %>

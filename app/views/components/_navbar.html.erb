@@ -20,22 +20,23 @@
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <i class="far fa-user-circle avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"></i>
-        <!-- # uncomment when logged in -->
-       <!--  <img src="" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown"> -->
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-
-          <% if user_signed_in? %>
-            <li><%= link_to "My Profile", user_path(current_user) %></li>
-            <li><%= link_to "Log out", destroy_user_session_path, method:'delete' %></li>
+        <% if current_user %>
+          <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+            <%= cl_image_tag current_user.photo, width: 150, height: 150, crop: :thumb, gravity: :face, class: "avatar" %>
+          </div>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><%= link_to 'My Profile', user_path(current_user)%></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+          <% else %>
+            <div class="navbar-links">
+              <%= link_to 'Sign up', new_user_registration_path %>
+              <%= link_to 'Log in', new_user_session_path %>
+            </div>
           <% end %>
-        </ul>
+        </div>
       </div>
     </div>
-  </div>
-
-
-
 
   <!-- Dropdown appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
