@@ -4,7 +4,7 @@
 
       <div class="container-left">
         <div class="image-container">
-          <%= image_tag 'profile_placeholder.jpeg', class:'profile-image-big-square' %>
+          <%= cl_image_tag 'http://res.cloudinary.com/twentythree/image/upload/v1527256813/profile_placeholder.jpg', class:'profile-image-big-square' %>
           <%= g.input :photo %>
           <%= g.input :photo_cache, as: :hidden %>
         </div>

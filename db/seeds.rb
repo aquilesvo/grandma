@@ -7,21 +7,39 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+User.destroy_all
 Grandmom.destroy_all
 
-20.times do
-  Grandmom.create({
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    description: Faker::HowIMetYourMother.quote,
+images = (1..14).to_a.map do |n|
+  'images/seed-omas/g#{n}.jpg'
+end
+
+addresses = [" Alexanderpl. 1, 10178 Berlin ", "Revaler Str. 1, 10243 Berlin", "Rigaer Str. 94, 10247 Berlin", "Mariannen Str. 27, 10999 Berlin", "Jonas Str. 41, 14053", "Pfalzburger Str. 29, 10717 Berlin", "Sonnenallee 137, 12059 Berlin", "Storkower Str. 121, 10407 Berlin", "Am Wriezener Bahnhof, 10243 Berlin", "Schicklerstraße 4, 10179 Berlin", "Mariannen Str. 6, 10997 Berlin", "An der Apostelkirche 12, 10783 Berlin"]
+
+
+4.times do
+  user = User.new({
+    email: Faker::Internet.email,
+    password: Faker::Job.title,
+    photo: images.sample,
+  })
+  user.save!
+end
+
+
+12.times do
+  g = Grandmom.new({
+    first_name: "Oma",
+    last_name: Faker::NewGirl.character,
+    description: Faker::Movie.quote,
     price: rand(20..60),
     cooking: [true, false].sample,
     childcare: [true, false].sample,
     storytelling: [true, false].sample,
     goforawalk: [true, false].sample,
-    address: Faker::Address.street_name,
-    photo: 'https://favim.com/orig/201107/08/glasses-grandmom-radical-retro-rock-roll-Favim.com-98806.jpg'
+    user_id: rand(1..4),
+    address: addresses.sample,
+    photo: images.sample
   })
+  g.save!
 end
-
-
