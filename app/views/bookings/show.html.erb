@@ -1,21 +1,4 @@
 <div class="show-main flexbox">
-  <div class="details">
-
-    <h1> Booking Number #<%=  @booking.id %> </h1>
-    <% grammy = Grandmom.find(@booking.grandmom_id) %>
-    <p> Grandma <%= grammy.first_name %> <%= grammy.last_name %></p>
-    <p> User <%= User.find(@booking.user_id).email %></p>
-    <p> From <%= @booking.start_time %></p>
-    <p> Until <%= @booking.end_time %></p>
-    <p> Status <%= @booking.status %></p>
-  </div>
-  <div class="photo">
-
-    <%= link_to 'Delete', grandmom_booking_path(grammy, @booking), method: 'delete' %>
-    <%= link_to 'Back', root_path %>
-  </div>
-</div>
-
   <div class="photo">
     <% grammy = Grandmom.find(@booking.grandmom_id) %>
     <%= image_tag @grandmom.photo.url(:bright_face), class:'profile-image-big-square' %>
