@@ -7,11 +7,21 @@
   justify-content: space-around;
   align-items: center;
 }
+
 .details {
   flex: 1 0 auto;
-  margin-left 20px;
+  margin-left: 50px;
+  font-size: 24px;
 }
 .photo {
   flex: 10%;
   text-align: right;
 }
+
+.btn {
+  width: 120px;
+}
+.status {
+  font-weight: bold;
+}
+
