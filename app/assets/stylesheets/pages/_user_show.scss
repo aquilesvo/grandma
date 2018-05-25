@@ -1,11 +1,17 @@
 .main-container-user {
   margin-right: 200px;
   margin-left: 200px;
+  margin: 50px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 6px 7px 5px -4px rgba(220,220,220,1);
+  border-radius: 5px;
 }
-.top {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+.main-container-user h1 {
+  text-align: center;
+}
+.top-user {
+  text-align: center;
 }
 .card-own-gm {
   flex: 1 1 auto;
@@ -13,6 +19,7 @@
   border-radius: 3px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   transition: all 0.3s ease;
+  padding: 10px;
 }
 .card-own-gm-body {
   height: 180px;
@@ -28,4 +35,23 @@
   justify-content: space-between;
   align-items: center;
   padding:10px;
+}
+.gm-design {
+  padding: 10px;
+}
+.gm-design h4 {
+  margin-top: 0px;
+}
+.gm-design a {
+  color: white;
+}
+.container-your-grandmoms {
+  margin: 50px;
+  padding: 20px;
+}
+.flexbox-user {
+  display: flex;
+}
+.container-your-grandmoms {
+  flex: 1 0 auto;
 }
