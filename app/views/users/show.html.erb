@@ -1,46 +1,61 @@
-<div class="main-container-user">
-  <h1>User Profile</h1>
-  <div class="top">
-    <h3> Your personal data:</h3>
-    </div>
-      <% if @current_user.photo.present? %>
-        <%= cl_image_tag @current_user.photo, height: 300, width: 400, crop: :fill %>
-        <%= link_to 'Delete', user_photo_path(current_user), method: :patch%>
-      <% else %>
-        <%= simple_form_for(@current_user) do |f| %>
-          <!-- [...] -->
-          <%= f.input :photo %>
-          <%= f.input :photo_cache, as: :hidden %>
-          <%= f.button :submit %>
+<div class="flexbox-user">
+  <div class="main-container-user">
+    <h1>User Profile</h1>
+    <div class="top">
+      <h3> Your personal data:</h3>
+      </div>
+        <% if @current_user.photo.present? %>
+          <%= cl_image_tag @current_user.photo, height: 300, width: 400, crop: :fill %>
+          <%= link_to 'Delete', user_photo_path(current_user), method: :patch%>
+        <% else %>
+          <%= simple_form_for(@current_user) do |f| %>
+            <!-- [...] -->
+            <%= f.input :photo %>
+            <%= f.input :photo_cache, as: :hidden %>
+            <%= f.button :submit %>
+          <% end %>
         <% end %>
-      <% end %>
-    <div>
-      <br>
-    <div>
-      <h4>Email:</h4>
-      <p><%= current_user.email %></p>
+      <div>
+        <br>
+      <div>
+        <h4>Email:</h4>
+        <p><%= current_user.email %></p>
+      </div>
     </div>
   </div>
 
-<br><br>
-
-    <h3>Your owned Grandmoms</h3>
-    <div class="container">
-      <div class="row">
-        <% @grandmoms_owned.each do |grandma| %>
-          <div class="col-xs-12 col-sm-4" style="background-image: url(https://favim.com/orig/201107/08/glasses-grandmom-radical-retro-rock-roll-Favim.com-98806.jpg);">
-            <!-- insert <div class="card"> -->
-              <div class="card">
-                <div class="card-category">
-                  <%= grandma.first_name %> <br>
-                </div>
-                <div class="card-description">
-                  <%= link_to grandma.first_name, grandmom_path(grandma) %>
-                </div>
+  <div class=container-your-grandmoms>
+    <div class="row">
+      <% @grandmoms_owned.each do |grandmom| %>
+      <div class="col-md-4">
+        <div class="card-own-gm">
+          <div class="body-own-gm">
+            <% unless grandmom.photo.blank? %>
+              <div class="card-own-gm-body" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+            url('<%= cl_image_path grandmom.photo, height: 300, width: 400, crop: :fill %>')">
+              <h4 class="gm-design"><%= link_to grandmom.first_name, grandmom_path(grandmom)%></h4>
               </div>
-          </div>
-        <% end %>
+            <% else %>
+              <div class="card-own-gm" style="background-image: url('https://source.unsplash.com/random')">
+              <h4><%= link_to grandmom.first_name, grandmom_path(grandmom)%></h4>
+              </div>
+            <% end %>
+         </div>
+         <div class="footer-own-gm">
+           <div class="edit">
+             <%= link_to edit_grandmom_path(grandmom) do %>
+              <i class="fas fa-edit"></i>
+             <% end %>
+           </div>
+           <div class="delete">
+             <%= link_to grandmom_path(grandmom), method: :delete, data: {confirm:"Are you sure?"} do %>
+               <i class="fas fa-trash"></i>
+             <% end %>
+           </div>
+         </div>
+        </div>
       </div>
+      <% end %>
     </div>
+  </div>
 </div>
-
