@@ -6,6 +6,7 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 gem 'figaro'
 gem "geocoder"
+gem 'has_scope'
 gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'

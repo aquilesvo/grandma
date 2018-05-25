@@ -2,6 +2,11 @@ class GrandmomsController < ApplicationController
   before_action :set_grandmom, only: [:show, :edit, :update, :destroy]
   before_action :authorize_grandmom, only: [:show, :edit, :update, :destroy]
 
+    #has_scope :childcare, :type => :boolean
+    #has_scope :cooking, :type => :boolean
+    #has_scope :goforawalk, :type => :boolean
+    #has_scope :storytelling, :type => :boolean
+
   def index
     @grandmoms = Grandmom.where.not(latitude: nil, longitude: nil)
     @markers = @grandmoms.map do |g|
