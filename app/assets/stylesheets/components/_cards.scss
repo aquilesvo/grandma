@@ -3,7 +3,7 @@
   background-position: center;
   height: 188px;
   border-radius: 4px;
-  margin: 15px 10px;
+  margin-bottom: 30px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
@@ -20,14 +20,14 @@
   }
 }
 .card-grandmom-name{
-  color: #307672;
+  color: white;
 } .card-grandmom-name:hover {
   text-decoration: none;
   color: red;
 }
 .card-grandmom-name {
   a {
-    color: #307672;
+    color: #white;
   }
   a:hover {
     text-decoration: none;
@@ -36,7 +36,7 @@
   }
 }
 .grandmom-container {
-  margin-top: 3%;
+  margin-top: 1%;
   margin-bottom: 5%;
   display: flex;
 }

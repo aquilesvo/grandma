@@ -1,17 +1,86 @@
-<h1>Grandmoms#new</h1>
-<p>Create a new Grandmom</p>
+<div class="complete-page">
+  <%= simple_form_for(@grandmom, method:'post') do |g| %>
+    <div class="main-container">
 
-<%= simple_form_for @grandmom, method:'post' do |g| %>
-  <%= g.input :first_name %>
-  <%= g.input :last_name %>
-  <%= g.input :photo %>
-  <%= g.input :photo_cache, as: :hidden %>
-  <%= g.input :address, input_html: {id: 'grandmom_address' } %>
-  <%= g.input :description, as: :text %>
-  <%= g.input :price %>
-  <%= g.input :cooking, as: :radio_buttons %>
-  <%= g.input :childcare, as: :radio_buttons %>
-  <%= g.input :storytelling, as: :radio_buttons %>
-  <%= g.input :goforawalk, as: :radio_buttons %>
-  <%= g.button :submit %>
-<% end %>
+      <div class="container-left">
+        <div class="image-container">
+          <%= image_tag 'profile_placeholder.jpeg', class:'profile-image-big-square' %>
+          <%= g.input :photo %>
+          <%= g.input :photo_cache, as: :hidden %>
+        </div>
+
+        <div>
+          <div class="row-container verified-info">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container-center">
+        <div class="headline">
+          <h1>Add a new Grandmom!</h1>
+          <%= g.input :first_name %> <%= g.input :last_name %>
+          <%= g.input :address, input_html: {id: 'grandmom_address' } %>
+          <br>
+          <%= g.input :description, as: :text %>
+          <br>
+          <div class="form-inline">
+            <%= g.input :price %> <i class="fas fa-euro-sign"></i>
+          </div>
+        </div>
+
+        <div class="skills-box">
+          <div class="row-container">
+            <div class="flexbox-row">
+              <h3 class="box-header">Skills</h3>
+            </div>
+            <div class="flexbox-row">
+              <div>
+                <%= g.input_field :childcare, as: :boolean, boolean_style: :inline %> Childcare
+              </div>
+              <div><i class="fas fa-child fa"></i></div>
+            </div>
+            <div class="flexbox-row">
+              <div>
+                <%= g.input_field :storytelling, as: :boolean, boolean_style: :inline %> Storytelling
+              </div>
+              <div><i class="fas fa-book-open fa"></i></div>
+            </div>
+            <div class="flexbox-row">
+              <div><%= g.input_field :goforawalk, as: :boolean, boolean_style: :inline %> Going for a Walk</div>
+              <div><i class="fas fa-walking fa"></i></div>
+            </div>
+            <div class="flexbox-row">
+              <div><%= g.input_field :cooking, as: :boolean, boolean_style: :inline %> Cooking</div>
+              <div><i class="fas fa-utensils fa"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-right">
+        <div class="button-box">
+         <%= g.button :submit %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
