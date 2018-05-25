@@ -6,13 +6,31 @@
   <div class="details">
     <h1> Booking Number #<%=  @booking.id %> </h1>
     <% grammy = Grandmom.find(@booking.grandmom_id) %>
-    <p> Grandma <%= grammy.first_name %> <%= grammy.last_name %></p>
-    <p> User <%= User.find(@booking.user_id).email %></p>
-    <p> From <%= @booking.start_time %></p>
-    <p> Until <%= @booking.end_time %></p>
-    <p> Status <%= @booking.status %></p>
+    <table style="width:50%">
+      <tr>
+        <td><strong>Grandma:</strong></td>
+        <td><%= grammy.first_name %> <%= grammy.last_name %></td>
+      </tr>
+      <tr>
+        <td><strong>User:</strong></td>
+        <td><%= User.find(@booking.user_id).email %></td>
+      </tr>
+      <tr>
+        <td><strong>From:</strong></td>
+        <td><%= @booking.start_time %></td>
+      </tr>
+      <tr>
+        <td><strong>Until:</strong></td>
+        <td><%= @booking.end_time %></td>
+      </tr>
+      <tr>
+        <td><strong>Status:</strong></td>
+        <td><strong><%= @booking.status %></strong></td>
+      </tr>
+    </table>
+    <br>
+    <%= link_to 'Delete', grandmom_booking_path(grammy, @booking), method: 'delete', class: "btn btn" %>
+    <%= link_to 'Back', root_path, class: "btn btn-primary" %>
 
-    <%= link_to 'Delete', grandmom_booking_path(grammy, @booking), method: 'delete' %>
-    <%= link_to 'Back', root_path %>
   </div>
 </div>
