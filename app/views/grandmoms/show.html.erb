@@ -4,7 +4,11 @@
 
     <div class="container-left">
       <div >
-        <%= image_tag @grandmom.photo.url(:bright_face), class:'profile-image-big-square' %>
+        <% if @grandmom.photo.present? %>
+          <%= image_tag @grandmom.photo.url(:bright_face), class:'profile-image-big-square' %>
+        <% else %>
+          <%= image_tag 'profile_placeholder.jpeg', class:'profile-image-big-square' %>
+        <% end %>
       </div>
 
       <div>
@@ -59,19 +63,19 @@
           </div>
           <div class="flexbox-row">
             <div><p>Childcare</p></div>
-            <div><i class="fas fa-child fa-3x"></i></div>
+            <div><i class="fas fa-child fa"></i></div>
           </div>
           <div class="flexbox-row">
             <div><p>Storytelling</p></div>
-            <div><i class="fas fa-book-open fa-3x"></i></div>
+            <div><i class="fas fa-book-open fa"></i></div>
           </div>
           <div class="flexbox-row">
             <div><p>Going for a Walk</p></div>
-            <div><i class="fas fa-walking fa-3x"></i></div>
+            <div><i class="fas fa-walking fa"></i></div>
           </div>
           <div class="flexbox-row">
             <div><p>Cooking</p></div>
-            <div><i class="fas fa-utensils fa-3x"></i></div>
+            <div><i class="fas fa-utensils fa"></i></div>
           </div>
         </div>
       </div>

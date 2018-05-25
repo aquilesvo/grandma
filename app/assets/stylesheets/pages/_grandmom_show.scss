@@ -1,4 +1,5 @@
 .main-container {
+  padding-top: 20px;
   display: flex;
   justify-content: space-around;
   margin: 0 100px;
@@ -13,7 +14,8 @@
 
 .container-center {
   flex: 1 0 auto;
-  align-items: center;
+  padding: 10px;
+  margin-right: 20px;
 }
 
 .container-right {
@@ -21,6 +23,9 @@
   display: block;
 }
 
+.image-container {
+  width: 200px;
+}
 .flex-element{
   margin: 20px;
 
@@ -38,7 +43,7 @@
 }
 
 .headline {
-  margin-left: 10px;
+  padding-top: 0px;
 }
 
 .skills-box {
