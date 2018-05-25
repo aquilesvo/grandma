@@ -88,6 +88,71 @@
         <% if policy(@grandmom).update? %> <%= link_to "Edit", edit_grandmom_path(@grandmom), class: "btn btn-primary flex-element" %> <% end %>
         <% if policy(@grandmom).destroy? %> <%= link_to "Delete", grandmom_path, method:'delete', class: "btn btn-primary flex-element" %> <% end %>
       </div>
+
+      <!-- Button to Open the Modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Book in overlay
+      </button>
+
+      <!-- The Modal -->
+      <div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h4 class="modal-title">Select your dates</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+              <div class="container">
+                <%= simple_form_for [@grandmom, @booking] do |f| %>
+                  <div class='col-md-3'>
+                    <div class="form-group">
+                      <div class='input-group date' id='datetimepicker6'>
+                        <input type='text' class="form-control" name="booking[start_time]" />
+                        <%# f.input :start_time, class: 'form-control' %>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class='col-md-3 rightside'>
+                    <div class="form-group">
+                      <div class='input-group date' id='datetimepicker7'>
+                        <input type='text' class="form-control" name="booking[end_time]"/>
+                        <%# f.input :end_time, class: 'form-control' %>
+                        <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                      </div>
+                    </div>
+                  <%= f.submit 'Book', :class => 'book_button'  %>
+                  </div>
+                <% end %>
+              </div>
+              <script type="text/javascript">
+
+
+              </script>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+
   </div>
 </div>

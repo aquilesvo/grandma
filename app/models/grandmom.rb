@@ -14,4 +14,9 @@ class Grandmom < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  scope :childcare, -> { where(:childcare => true) }
+  scope :storytelling, -> { where(:storytelling => true) }
+  scope :goforawalk, -> { where(:goforawalk => true) }
+  scope :cooking, -> { where(:cooking => true) }
 end
