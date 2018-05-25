@@ -9,26 +9,6 @@
           <%= g.input :photo_cache, as: :hidden %>
         </div>
 
-        <div>
-          <div class="row-container verified-info">
-
-          </div>
-        </div>
-      </div>
-
-      <div class="container-center">
-        <div class="headline">
-          <h1>Add a new Grandmom!</h1>
-          <%= g.input :first_name %> <%= g.input :last_name %>
-          <%= g.input :address, input_html: {id: 'grandmom_address' } %>
-          <br>
-          <%= g.input :description, as: :text %>
-          <br>
-          <div class="form-inline">
-            <%= g.input :price %> <i class="fas fa-euro-sign"></i>
-          </div>
-        </div>
-
         <div class="skills-box">
           <div class="row-container">
             <div class="flexbox-row">
@@ -56,31 +36,23 @@
             </div>
           </div>
         </div>
+
+      </div>
+
+      <div class="container-center">
+        <div class="headline">
+          <h3>Add a new Grandmom!</h3>
+          <%= g.input :first_name %> <%= g.input :last_name %>
+          <%= g.input :address, input_html: {id: 'grandmom_address' } %>
+          <%= g.input :description, as: :text %>
+          <%= g.input :price %>
+          <div><%= g.button :submit, class:'button-box-new' %></div>
+        </div>
       </div>
 
       <div class="container-right">
-        <div class="button-box">
-         <%= g.button :submit %>
-        </div>
+
       </div>
     </div>
   <% end %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
