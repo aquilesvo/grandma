@@ -1,23 +1,23 @@
 // Specific CSS for your home-page
-.main-page {
+.main-page-home {
   background-image: linear-gradient(to right, rgba(0,0,0,0.4), rgba(0,0,0,0.4)), asset-url('queen-klein.jpg');
   height: calc(100vh - 70px);
   background-size: cover;
   margin-top: 0px;
 }
-.body {
+.body-home {
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 0px;
 }
-.body h1 {
+.body-home h1 {
   margin: 0px;
   color: white;
   text-align: center;
   font-size: 72px;
   font-weight: bold;
 }
-.headline {
+.headline-home {
   padding-top: 150px;
 }
 .subtitle  h3 {
@@ -27,17 +27,17 @@
   font-size: 28px;
   font-family: 'Quattrocento', 'sans-serif' !important;
 }
-.search {
+.search-home {
   display: flex;
   align-items: center;
   margin-right: 250px;
   margin-left: 250px;
   margin-top: 50px;
 }
-.searchbox {
+.searchbox-home {
   display: flex;
   .form-control {
-    width: 700px;
+    width: 460px;
   }
 }
 .searchbutton {
