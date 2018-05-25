@@ -1,0 +1,17 @@
+.show-main {
+  margin-left: 100px;
+  margin-right: 100px;
+}
+.flexbox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.details {
+  flex: 1 0 auto;
+  margin-left 20px;
+}
+.photo {
+  flex: 10%;
+  text-align: right;
+}
