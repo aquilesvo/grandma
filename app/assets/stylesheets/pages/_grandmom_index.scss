@@ -4,6 +4,12 @@
 .cards-container {
   display: flex;
   flex-wrap: wrap;
+  width: auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
 }
 h3 {
   margin-left: 30px;
