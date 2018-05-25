@@ -46,16 +46,7 @@
         <br>
         <p><i class="fas fa-euro-sign"></i> <%= @grandmom.price %></p>
       </div>
-    <!--   <div class="skills-box grid">
-        <h3 class="box-header">Skills</h3>
 
-        <ul class="box-list">
-          <li class="grid-element e1-from-top"><i class="fas fa-child fa-3x"></i></li>
-          <li class="grid-element e2-from-top"><i class="fas fa-book-open fa-3x"></i></li>
-          <li class="grid-element e3-from-top"><i class="fas fa-walking fa-3x"></i></li>
-          <li class="grid-element e4-from-top"><i class="fas fa-utensils fa-3x"></i></li>
-        </ul>
-      </div> -->
       <div class="skills-box">
         <div class="row-container">
           <div class="flexbox-row">
@@ -63,19 +54,19 @@
           </div>
           <div class="flexbox-row">
             <div><p>Childcare</p></div>
-            <div><i class="fas fa-child fa"></i></div>
+            <div><% if @grandmom.childcare == true %><i class="fas fa-child fa green" ></i><% else %><i class="far fa-times-circle red"></i><% end %></div>
           </div>
           <div class="flexbox-row">
             <div><p>Storytelling</p></div>
-            <div><i class="fas fa-book-open fa"></i></div>
+            <div><% if @grandmom.storytelling == true %><i class="fas fa-book-open fa green" ></i><% else %><i class="far fa-times-circle red"></i><% end %></div>
           </div>
           <div class="flexbox-row">
             <div><p>Going for a Walk</p></div>
-            <div><i class="fas fa-walking fa"></i></div>
+            <div><% if @grandmom.goforawalk == true %><i class="fas fa-walking fa green" ></i><% else %><i class="far fa-times-circle red"></i><% end %></div>
           </div>
           <div class="flexbox-row">
             <div><p>Cooking</p></div>
-            <div><i class="fas fa-utensils fa"></i></div>
+            <div><% if @grandmom.childcare == true %><i class="fas fa-utensils green" ></i><% else %><i class="far fa-times-circle red"></i><% end %></div>
           </div>
         </div>
       </div>
@@ -83,16 +74,16 @@
 
     <div class="container-right">
       <div class="button-box">
-        <%= link_to "Book", new_grandmom_booking_path(@grandmom), class: "btn btn-primary flex-element" %>
         <%= link_to "Home", grandmoms_path, class: "btn btn-primary flex-element" %>
         <% if policy(@grandmom).update? %> <%= link_to "Edit", edit_grandmom_path(@grandmom), class: "btn btn-primary flex-element" %> <% end %>
         <% if policy(@grandmom).destroy? %> <%= link_to "Delete", grandmom_path, method:'delete', class: "btn btn-primary flex-element" %> <% end %>
+        <button type="button" class="btn btn-primary flex-element" data-toggle="modal" data-target="#myModal">
+        Book
+        </button>
       </div>
 
       <!-- Button to Open the Modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-        Book in overlay
-      </button>
+
 
       <!-- The Modal -->
       <div class="modal" id="myModal">
