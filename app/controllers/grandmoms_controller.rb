@@ -22,6 +22,7 @@ class GrandmomsController < ApplicationController
   end
 
   def show
+    @booking = Booking.new
     authorize @grandmom
   end
 
